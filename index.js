@@ -213,11 +213,11 @@ console.log(artists[2].bio);
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 artists[8].name = "Vincent Van Gogh";
-
+console.log(artists[8]);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
- *     (2) a number which is the desired index in the array.
+ *     (2) a number which is the desired index in the array. 
  * getArtistByIndex returns a string in the format `The artist at index {id} is {name}.`
  * 
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
@@ -234,9 +234,17 @@ console.log(getArtistByIndex(artists, 0));
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who lived in the 20th century (1900-2000) */
 
 function get20s(array) {
-  filteredData = array.filter((data) => {
+  // let retArray = []
+  // for (let i = 0; i < array.length; i++) {
+  //   let yearSplit = data.years.split(" - ");
+  //   if (yearSplit[0] >= 1900 && yearSplit[1] <= 2000) retArray.push(array[i]);   
+  // }
+
+  // return retArray;
+
+  let filteredData = array.filter((data) => {
     let yearSplit = data.years.split(" - ");
-    if(yearSplit[0] >= 1900 && yearSplit[1] <= 2000) return true;
+    if (yearSplit[0] >= 1900 && yearSplit[1] <= 2000) return true;
   });
 
   return filteredData;
@@ -293,8 +301,8 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 
 function lotsOfArt(array) {
   let retArray = [];
-  for(let i = 0; i < array.length; i++){
-    if(artists[i].paintings > 100) retArray.push(artists[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (artists[i].paintings > 100) retArray.push(artists[i]);
   }
 
   return retArray;
@@ -325,9 +333,7 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */) {
-
-  /* Code here */
+function getHTML(array) {
 
 }
 
@@ -335,8 +341,8 @@ function getHTML(/* Code here */) {
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
 function randomize(array) {
-  array.sort(function() {
-    return Math.random() - .5;   
+  array.sort(function () {
+    return Math.random() - .5;
   });
 
   return array;
