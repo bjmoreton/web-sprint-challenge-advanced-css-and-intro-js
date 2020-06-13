@@ -226,7 +226,7 @@ console.log(artists[8]);
 function getArtistByIndex(array, index) {
   return array[index];
 }
-console.log(getArtistByIndex(artists, 0));
+console.log("getArtistByIndex: ", getArtistByIndex(artists, 0));
 
 /**
 
@@ -249,7 +249,7 @@ function get20s(array) {
 
   return filteredData;
 }
-console.log(get20s(artists));
+console.log("get20s: ", get20s(artists));
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -266,7 +266,7 @@ function removeArtist(array, index) {
   array.splice(index, 1);
   return array;
 }
-console.log(removeArtist(artists, 0));
+console.log("removeArtist: ", removeArtist(artists, 0));
 /**
 
 
@@ -285,11 +285,11 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 At the end, this function should console.log() the new array with information added"*/
 
 function addArtist(array, id, name, years, genre, nationality, bio) {
-  let obj = { id, name, years, genre, nationality, bio };
+  let obj = { id, name, years, genre, nationality, bio, paintings: 0 };
   array.push(obj);
   return array;
 }
-console.log(addArtist(artists, 21, "Richard Moreton", "1989 - 2020", "Web Design", "American", "This is just some dummy information for my bio."));
+console.log("addArtist: ", addArtist(artists, 21, "Richard Moreton", "1989 - 2020", "Web Design", "American", "This is just some dummy information for my bio."));
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -308,7 +308,7 @@ function lotsOfArt(array) {
   return retArray;
 }
 
-console.log(lotsOfArt(artists));
+console.log("lotsOfArt: ", lotsOfArt(artists));
 
 // 🎨🎨 STRETCH 🎨🎨//
 
@@ -347,7 +347,16 @@ function randomize(array) {
 
   return array;
 }
-console.log(randomize(artists));
+console.log("randomize: ", randomize(artists));
 
 
 /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+filteredBorn = artists.filter(data => {
+  return data.years.startsWith("19");
+});
+console.log("filterdBorn", filteredBorn);
+
+totalPaintings = artists.reduce((acc, artist) => {
+  return acc += artist.paintings;
+}, 0);
+console.log("Total Paintings:", totalPaintings);
